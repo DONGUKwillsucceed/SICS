@@ -1,0 +1,24 @@
+.mainContainer{
+  display:flex;
+}
+.statusContainer{
+  padding:32px;
+  display:flex;
+}
+.selectContainer{
+  height:100%;
+  width:40vw;
+  background-color: rgba(var(--d87,255,255,255),1);
+  border : 1px solid rgba(var(--b6a,219,219,219),1);
+  border-radius: 10px;
+  padding:16px;
+  margin-right:32px;
+}
+.noneSelectContainer{
+  height:100%;
+  width:30vw;
+  background-color: rgba(var(--d87,255,255,255),1);
+  border : 1px solid rgba(var(--b6a,219,219,219),1);
+  border-radius: 10px;
+  padding:16px;
+}

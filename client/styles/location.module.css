@@ -1,0 +1,89 @@
+.locationBoard{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.header{
+    width:100%;
+    height:32px;
+    margin-bottom:16px;
+}
+.header h3{
+    margin:0;
+}
+.houseContainer{
+    display:flex;
+    justify-content: center;
+    width:100%;
+    height:80%;
+}
+.house{
+    width:640px;
+    height: 100%;
+    border: 2px solid #262626;
+}
+.house p{
+    margin-left:8px;
+    margin-top:8px;
+}
+.log{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    position:absolute;
+    bottom:20px;
+}  
+.upperPart{
+    height:68%;
+    width:100%;
+    display:flex;
+}
+.livingRoom{
+    width:50%;
+}
+.coloredLivingRoom{
+    width:50%;
+    background-color : #89F4C7;
+}
+.mainRoom{
+    width:50%;
+    border-left: 1.5px solid #262626;
+    border-bottom: 1.5px solid #262626;
+}
+.coloredMainRoom{
+    width:50%;
+    border-left: 1.5px solid #262626;
+    border-bottom: 1.5px solid #262626;
+    background-color : #89F4C7;
+}
+.bottomPart{
+    display:flex;
+    width:100%;
+    height:32%;
+}
+.bathRoom{
+    height:100%;
+    border-top: 1.5px solid #262626;
+    border-right: 1.5px solid #262626;
+    width:30%;
+}
+.coloredBathRoom{
+    height:100%;
+    border-top: 1.5px solid #262626;
+    border-right: 1.5px solid #262626;
+    background-color : #89F4C7;
+    width:30%;
+}
+.coloredKitchen{
+    background-color : #89F4C7;
+}
+.logCompo{
+    width:100%;
+    height:100%;
+}
+.logCompo ul{
+    flex-direction: column;
+}
+.logCompo li{
+    margin-bottom : 8px;
+}

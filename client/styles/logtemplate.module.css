@@ -1,0 +1,11 @@
+.container{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+}
+.container p {
+    margin:0;
+}
+.timeline{
+    font-size: 12px;
+}

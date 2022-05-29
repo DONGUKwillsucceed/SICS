@@ -1,0 +1,46 @@
+.header{
+    width:100%;
+    display:flex;
+    justify-content:left;
+    align-items: center;
+    background-color: rgba(var(--d87,255,255,255),1);
+    border-bottom: 1px solid rgba(var(--b6a,219,219,219),1);
+}
+.dashboard{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 200px);
+    padding-left:48px;
+    padding-right:70px;
+}
+.logo{
+    min-width:380px;
+    text-align: center;
+    border-right:1px solid rgba(var(--b6a,219,219,219),1);
+}
+.userName{
+    font-size:18px;
+    color:#262626;
+}
+.admin{
+    font-size:12px;
+}
+.logo h1{
+    color:#262626;
+}
+.status{
+    display:flex;
+    align-items: center;
+}
+.lable{
+    color:#262626;
+    margin-right:32px;
+    font-size:24px;
+}
+.headNav ul{
+    align-items: center;
+}
+.headNav li{
+    margin-left:16px
+}

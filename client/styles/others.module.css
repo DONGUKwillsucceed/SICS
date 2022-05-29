@@ -1,0 +1,34 @@
+
+
+.liName{
+    width:60px;
+    font-size: 18px;
+    color:#262626;
+}
+.mainContainer{
+    display:flex;
+    flex-direction: column;
+    width:380px;
+    height: calc(100vh - 86px);
+    background-color: rgba(var(--d87,255,255,255),1);
+    border-right: 1px solid rgba(var(--b6a,219,219,219),1);
+    padding-top:32px;
+    padding-left:32px;
+    padding-right:32px;
+    padding-bottom: 32px;
+    position:relative;
+}
+.userInfo {
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+.mainContainer ul{
+    flex-direction: column;
+    padding:0;
+}
+.mainContainer li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
