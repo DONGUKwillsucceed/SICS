@@ -4,10 +4,9 @@ import RightCompo from '../components/infoCompo'
 import LocationBoard from '../components/location'
 import LogBoard from '../components/logCompo'
 import Others from '../components/others'
-import Head from 'next/head'
-import Image from 'next/image'
+import {io} from 'socket.io-client'
 import styles from '../styles/Home.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface log{
   context : string;
@@ -36,13 +35,14 @@ interface DataPacket{
 export const getServerSideProps : GetServerSideProps = async()=>{
   const resAboutUserInfo = await fetch('http://localhost:3000/api/userinfo/김복자');
   const resAboutUserList = await fetch('http://localhost:3000/api/userinfo');
-  const resAboutLocation = await fetch('http://localhost:3000/api/location');
-  const resAboutLogs = await fetch('http://localhost:3000/api/statuslogs');
+  const resAboutLocation = await fetch('http://localhost:8080/location');
+  const resAboutLogs = await fetch('http://localhost:8080/logs');
   const resAboutstatus = await fetch('http://localhost:3000/api/status/김복자');
   const {userName, address, contact, infomation} = await resAboutUserInfo.json();
   const {users} = await resAboutUserList.json();
   const {room, time} = await resAboutLocation.json();
-  const {logs} = await resAboutLogs.json();
+  const logs = await resAboutLogs.json();
+  console.log(logs);
   const {status} = await resAboutstatus.json();
   return {
     props:{
@@ -59,11 +59,16 @@ export const getServerSideProps : GetServerSideProps = async()=>{
   }
 }
 
+const socket = io("http://localhost:8080")
 
 const Home: NextPage<DataPacket> = (props) => {
 
+  useEffect(()=>{
+    socket.on('log-msg', (data)=>{
+      socket.emit('log-msg', data);
+    })
+  })
   const [userList, setUserList] = useState(false);
-
   return (
     <div>
       <Header status={props.status}/>
