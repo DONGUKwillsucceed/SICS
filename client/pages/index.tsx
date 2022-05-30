@@ -37,7 +37,7 @@ export const getServerSideProps : GetServerSideProps = async()=>{
   const resAboutUserList = await fetch('http://localhost:3000/api/userinfo');
   const resAboutLocation = await fetch('http://localhost:8080/location');
   const resAboutLogs = await fetch('http://localhost:8080/logs');
-  const resAboutstatus = await fetch('http://localhost:3000/api/status/김복자');
+  const resAboutstatus = await fetch('http://localhost:8080/status');
   const {userName, address, contact, infomation} = await resAboutUserInfo.json();
   const {users} = await resAboutUserList.json();
   const {room, time} = await resAboutLocation.json();

@@ -5,6 +5,7 @@ import helmet from "helmet";
 import cors from "cors";
 import logRouter from "./router/log.js";
 import locationRouter from "./router/location.js";
+import judgementRouter from "./router/judgement.js";
 import { ReadlineParser, SerialPort } from "serialport";
 import { Server } from "socket.io";
 import { makeLogs } from "./data/log.js";
@@ -24,7 +25,8 @@ app.use(cors());
 
 app.use("/logs", logRouter);
 app.use("/location", locationRouter);
-
+app.use("/status", judgementRouter);
+/*
 const port = new SerialPort({ path: "COM3", baudRate: 9600 });
 const parser = port.pipe(new ReadlineParser({ delimiter: "\r\n" }));
 
@@ -64,7 +66,7 @@ port.on("open", () => {
     }
   });
 });
-
+*/
 app.use("/", (req, res, next) => {
   res.sendStatus(404);
 });

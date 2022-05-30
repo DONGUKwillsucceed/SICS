@@ -4,10 +4,12 @@ import { getLocation } from "../data/log.js";
 const route = express.Router();
 
 route.get("/", async (req, res) => {
-  const room = await getLocation();
+  const { room, time } = await getLocation();
   console.log(room);
-  const time = 3;
-  res.status(200).json({ room, time });
+  const curtime = new Date();
+  console.log(curtime - time);
+  const timediff = parseInt((curtime - time) / 1000 / 60);
+  res.status(200).json({ room, time: timediff });
 });
 
 export default route;
