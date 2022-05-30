@@ -59,15 +59,10 @@ export const getServerSideProps : GetServerSideProps = async()=>{
   }
 }
 
-const socket = io("http://localhost:8080")
 
 const Home: NextPage<DataPacket> = (props) => {
 
-  useEffect(()=>{
-    socket.on('log-msg', (data)=>{
-      socket.emit('log-msg', data);
-    })
-  })
+
   const [userList, setUserList] = useState(false);
   return (
     <div>
