@@ -1,19 +1,38 @@
 import express from "express";
-import { judgeHIT, judgePIR } from "../data/log.js";
+import {
+  judgeFlame,
+  judgeFSR,
+  judgeMg,
+  judgePIR,
+  judgeRFID,
+  judgeTcrt,
+} from "../data/log.js";
 
 const route = express.Router();
 
 route.get("/", async (req, res) => {
-  const statusHIT = await judgeHIT();
+  const statusMG = await judgeMg();
   const statusPIR = await judgePIR();
-  const allStatus = [statusHIT, statusPIR];
+  const statusTrct = await judgeTcrt();
+  const statusRFID = await judgeRFID();
+  const statusFSR = await judgeFSR();
+  const statusFlame = await judgeFlame();
+  const allStatus = [
+    statusMG,
+    statusPIR,
+    statusRFID,
+    statusTrct,
+    statusFSR,
+    statusFlame,
+  ];
   let max = 0;
   for (const status of allStatus) {
     if (max < status) {
       max = status;
     }
   }
-  console.log(`max : ${allStatus}`);
+
+  console.log(allStatus);
   if (max === 0) {
     res.status(200).json({ status: "정상" });
   } else if (max === 1) {

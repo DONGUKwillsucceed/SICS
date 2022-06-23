@@ -24,6 +24,12 @@ const container : FC<props> = ({room, time})=>{
     if(room === '부엌'){
         isKitchen = true;
     }
+    if(room === "none"){
+        islivingRoom = false;
+        isMainRoom = false;
+        isBathRoom = false;
+        isKitchen = false;
+    }
 
     return(
         <div className={styles.locationBoard}>
@@ -52,7 +58,9 @@ const container : FC<props> = ({room, time})=>{
                 
             </div>
             <div className={styles.log}>
-                <p>{room}에서 {time}분간 이동하지 않고 있습니다.</p>
+                {
+                    room === 'none' ? <p>집밖으로 나갔습니다.</p> :<p>{room}에서 {time}분간 이동하지 않고 있습니다.</p>
+                }
             </div>
         </div>
     )
